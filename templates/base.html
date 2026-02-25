@@ -4,10 +4,9 @@
     <title>{% block title %}Flask App{% endblock %}</title>
 
     <nav>
-        <a href="{{url_for('index')}}">Home</a> #How we should do it from now on
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
+        <a href="{{url_for('home')}}">Home</a>
+        <a href="{{url_for('about')}}">About</a>
+        <a href="{{url_for('projects')}}">Projects</a>
 
     </nav>
 </head>
