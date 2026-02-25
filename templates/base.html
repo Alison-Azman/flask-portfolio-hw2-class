@@ -1,0 +1,18 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}Flask App{% endblock %}</title>
+
+    <nav>
+        <a href="{{url_for('index')}}">Home</a> #How we should do it from now on
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+
+    </nav>
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>
+<footer>{% block footer %}Copyright 2026{% endblock %}</footer>
+</html>
