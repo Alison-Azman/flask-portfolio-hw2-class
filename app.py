@@ -46,6 +46,9 @@ def home():  # put application's code here
 def about():
     return render_template('about.html')
 
+@app.route('/projects')
+def projects():
+    return render_template('projects.html', projects=projects_data)
 
 
 if __name__ == '__main__':

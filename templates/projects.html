@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Project Page{% endblock %}
+{% block content %}
+<p>Welcome to my Projects!!</p>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Tech Stack</th>
+        <th>GitHub Link</th>
+
+    </tr>
+    <tr>
+        {% for project in projects %}
+            {% if project_thing == project_id %}
+        <td><a href="{{ url_for('project', project_id=project.id) }}">{{ project.id }} View Details </a></td>
+        <td>{{ project.title }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.tech}}</td>
+        <td>{{ project.github_link }}</td>
+
+    </tr>
+{% endif %}
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}
