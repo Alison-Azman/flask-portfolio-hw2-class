@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 projects_data = [
@@ -49,6 +49,13 @@ def about():
 @app.route('/projects')
 def projects():
     return render_template('projects.html', projects=projects_data)
+@app.route('/project/<int:project_id>')
+def project(project_id):
+    for project in projects_data:
+        if project["id"] == project_id:
+            return render_template('project_detail.html', project=project)
+
+    return abort(404)
 
 
 if __name__ == '__main__':
