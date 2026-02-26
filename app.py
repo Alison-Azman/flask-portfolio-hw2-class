@@ -46,7 +46,11 @@ projects_data = [
         "tags": ["React", "Art"]
     }
 ]
-
+class ContactForm(FlaskForm):
+    name=StringField('Your Name', validators=[DataRequired()])
+    email=StringField('Email Address', validators=[DataRequired(), Email()])
+    message=TextAreaField('Message', validators=[DataRequired()])
+    submit=SubmitField('Send Message')
 @app.route('/')
 def home():  # put application's code here
     return render_template('home.html')
