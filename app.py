@@ -81,4 +81,4 @@ def contact_submission(user_name, user_email):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
