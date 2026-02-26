@@ -1,5 +1,14 @@
+import app
 from flask import Flask, render_template, abort
+from flask_bootstrap import Bootstrap, Bootstrap5
+from flask import Flask
+from flask_wtf import FlaskForm, form
+from wtforms import StringField, SubmitField, TextAreaField
+from wtforms.validators import DataRequired, Email
 
+
+
+bootstrap = Bootstrap5(app)
 app = Flask(__name__)
 projects_data = [
     {
