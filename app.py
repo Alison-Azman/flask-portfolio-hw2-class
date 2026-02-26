@@ -65,6 +65,19 @@ def project(project_id):
             return render_template('project_detail.html', project=project)
 
     return abort(404)
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm(request.form)
+    if form.validate_on_submit():
+        user_name= form.name.data
+        user_email= form.email.data
+        user_message= form.message.data
+        return redirect(url_for('contact_submission', user_name=user_name, user_email=user_email))
+    return render_template('contact.html', form=form)
+
+@app.route('/contact_submission/<user_name>/<user_email>')
+def contact_submission(user_name, user_email):
+    return render_template('contact_submission.html',  user_name=user_name, user_email=user_email)
 
 
 if __name__ == '__main__':
