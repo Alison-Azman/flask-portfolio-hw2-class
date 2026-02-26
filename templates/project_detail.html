@@ -1,14 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Project Detail Page{% endblock %}
+{% block title %}Project Details{% endblock %}
+
 {% block content %}
-<h1>Details for Project ID: {{ project.id }}</h1>
+<div class="container mt-4">
+    <h1>{{ project.title }}</h1>
 
+    <img src="{{ project.image }}" alt="{{ project.title }}" style="max-width: 500px;">
 
-    <h2> {{ project.title }} </h2>
-    <h2> {{project.description}}</h2>
-    <h2> Tech Stack: {{project.tech}}</h2>
-    <h2> View on GitHub: {{project.github_link}}</h2>
-    <img src="{{project.image_url}}" alt="Random Picture" >
+    <div class="my-3">
+        {% for tag in project.tags %}
+            <span class="badge bg-primary">{{ tag }}</span>
+        {% endfor %}
+    </div>
 
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    <p><strong>Tech Stack:</strong> {{ project.tech }}</p>
 
+    <p>
+        <a href="{{ project.github_link }}" class="btn btn-dark">View on GitHub</a>
+    </p>
+</div>
 {% endblock %}
