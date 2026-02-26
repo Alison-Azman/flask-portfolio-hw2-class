@@ -1,22 +1,14 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+<!-- 1. Import the macro -->
 {% from 'macros.html' import render_project_card %}
-{% block title %}Project Page{% endblock %}
+
 {% block content %}
-<div class="container mt-4">
-<p>Welcome to my Projects!!</p>
+<h1>My Projects</h1>
 
 <div class="row">
-        {% for project in projects %}
-            <div class="col-md-4 mb-4">
-                {# Use your macro here! #}
-                {{ render_project_card(project) }}
-            </div>
-        {% endfor %}
-    </div>
+    {% for project in projects %}
+        <!-- 2. Call the macro for each project -->
+        {{ render_project_card(project) }}
+    {% endfor %}
 </div>
-
-
-
-
-
 {% endblock %}
