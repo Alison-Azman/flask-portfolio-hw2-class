@@ -1,51 +1,51 @@
-import app
-from flask import Flask, render_template, abort
-from flask_bootstrap import Bootstrap, Bootstrap5
-from flask import Flask
+from flask import Flask, render_template, abort, request, redirect, url_for
+from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm, form
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
 
-
+app = Flask(__name__)
 
 bootstrap = Bootstrap5(app)
-app = Flask(__name__)
+
 projects_data = [
     {
         "id": 1,
         "title": "Portfolio Site",
         "description": "This current website built with Flask.",
         "tech": "Python, HTML, CSS, Jinja2",
-        "github_link": "[https://github.com/](https://github.com/)...",
-        "image_url": "https://picsum.photos/id/1/600/400"  # Example stock photo
+        "github_link": "https://github.com/",
+        "image": "https://picsum.photos/id/1/600/400",
+        "tags": ["Python", "Flask", "Web"]
     },
     {
         "id": 2,
         "title": "Weather App",
         "description": "Fetches live weather data from an API.",
         "tech": "JavaScript, React, OpenWeatherMap API",
-        "github_link": "[https://github.com/](https://github.com/)...",
-        "image_url": "https://picsum.photos/id/10/600/400"
+        "github_link": "https://github.com/",
+        "image": "https://picsum.photos/id/10/600/400",
+        "tags": ["JavaScript", "API", "React"]
     },
     {
         "id": 3,
         "title": "Tour Israel",
-        "description": "Israel travel guide",
+        "description": "Israel travel guide.",
         "tech": "JavaScript, React, OpenWeatherMap API",
-        "github_link": "[https://github.com/](https://github.com/)...",
-        "image_url": "https://picsum.photos/200/300?grayscale"
+        "github_link": "https://github.com/",
+        "image": "https://picsum.photos/200/300?grayscale",
+        "tags": ["Travel", "UI/UX"]
     },
-{
+    {
         "id": 4,
         "title": "Menorah",
-        "description": "Menorah with different characteristics",
+        "description": "Menorah with different characteristics.",
         "tech": "JavaScript, React, OpenWeatherMap API",
-        "github_link": "[https://github.com/](https://github.com/)...",
-        "image_url": "https://picsum.photos/id/237/200/300"
+        "github_link": "https://github.com/",
+        "image": "https://picsum.photos/id/237/200/300",
+        "tags": ["React", "Art"]
     }
-
 ]
-
 
 @app.route('/')
 def home():  # put application's code here
