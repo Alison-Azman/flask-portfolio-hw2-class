@@ -20,15 +20,16 @@
 {#    </nav>#}
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="navbar-nav mr-auto">
-        {{ render_nav_item('home', 'Home', 'test') }}
-        {{ render_nav_item('about', 'About') }}
-        {{ render_nav_item('projects', 'Projects') }}
-        {{ render_nav_item('contact','Contacts') }}
-
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            {{ render_nav_item('home', 'Home') }}
+            {{ render_nav_item('about', 'About') }}
+            {{ render_nav_item('projects', 'Projects') }}
+            {{ render_nav_item('contact','Contacts') }}
+        </ul>
     </div>
-</nav>
+    </nav>
 </head>
 <body>
 {% block content %}{% endblock %}
