@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Email
 app = Flask(__name__)
 
 bootstrap = Bootstrap5(app)
-
+app.config['SECRET_KEY'] = 'my_key'
 projects_data = [
     {
         "id": 1,
