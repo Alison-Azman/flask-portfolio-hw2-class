@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+
+
+    {% if user_name %}
+    <h2>Hello {{ user_name }}</h2>
+    {% endif %}
+
+     {% if user_email %}
+    <h2>User email is: {{ user_email }}</h2>
+    {% endif %}
